@@ -1,0 +1,27 @@
+.git
+.gitignore
+.venv
+.omc
+**/__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+
+# Frontend is built and deployed on Vercel, not needed in the backend image
+apps/frontend/node_modules
+apps/frontend/dist
+apps/frontend/playwright-report
+apps/frontend/test-results
+
+# Local SQLite DB — the container recreates it via migrations + seed
+data/*.db
+
+# Generated run evidence (regenerated at runtime)
+evidence/EV-ALT-*.json
+evidence/EV-PALT-*.json
+evidence/EV-FACTS-*.json
+evidence/EV-RULES-*.json
+evidence/EV-INTEGRATION-*.json
+evidence/EV-GOLDEN-*.json
+evidence/EV-PERSISTENCE-*.json
+evidence/EV-STORAGE-*.json

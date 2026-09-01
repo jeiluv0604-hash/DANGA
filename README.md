@@ -37,7 +37,13 @@ python scripts/run_golden_tests.py
 .\bootstrap.ps1
 ```
 
-### 5. 경영체계 프로토타입
+### 5. 배포 (Vercel + Render)
+
+프론트엔드는 Vercel(정적), 백엔드는 Render(Docker)로 배포하며 `VITE_API_BASE_URL`
+환경변수로 연결한다. 저장소에 `Dockerfile`, `docker-entrypoint.sh`, `render.yaml`,
+`apps/frontend/vercel.json`가 포함되어 있다. 상세 절차: [docs/operations/deployment-v1.0.md](docs/operations/deployment-v1.0.md)
+
+### 6. 경영체계 프로토타입
 
 - 브랜드: `담가화로구이`
 - 데이터: `SYNTHETIC · 실제 담가화로구이 매장 데이터 아님`

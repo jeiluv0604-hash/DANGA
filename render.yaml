@@ -1,0 +1,21 @@
+# Render Blueprint for the DAMGA-OPS backend API.
+# Deploy: push to GitHub, then in Render > New > Blueprint, point at this repo.
+services:
+  - type: web
+    name: damga-ops-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: singapore
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: APP_VERSION
+        value: 6.0.0-prototype
+      # DATABASE_URL is intentionally unset: the app defaults to an on-disk
+      # SQLite file that is migrated and re-seeded on every boot. Render's free
+      # tier disk is ephemeral, so operator-entered data (imports, decision
+      # actions) resets on redeploy — acceptable for this SYNTHETIC prototype.
+      # To persist, attach a Render Disk mounted at /app/data, or set
+      # DATABASE_URL to a managed Postgres instance.
