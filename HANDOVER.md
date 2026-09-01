@@ -232,24 +232,18 @@ Bootstrap은 `.venv` 생성, 고정 버전 의존성 설치, Alembic upgrade, Py
 - API health: `GET /health` 정상
 - 현재 API PID는 작업 시점 기준 `23748`이나 Claude Code 시작 시 포트로 재확인할 것
 
-### 남은 정확한 작업
+### 마감 작업 (2026-09-01 완료)
 
-1. 증거 JSON 재생성
-   - 직전 직접 실행은 `ModuleNotFoundError: No module named 'domains'`로 1회 실패
-   - 프로젝트 루트를 Python path에 포함해 실행:
-
-```powershell
-$env:PYTHONPATH = (Get-Location).Path
-python scripts/generate_phase6_evidence.py
-```
-
-2. 생성 후 다음 값 확인
-   - `evidence/phase-6-management-system-prototype.json`
-   - Vitest 25, Playwright 18, Pytest 202, 합계 245
-   - `evidence/phase-6-management-system-prototype.index.json`의 SHA-256 일치
-3. `python scripts/write_handover.py` 실행
-4. `git diff --check`와 `git status` 확인
-5. 모든 변경을 체크포인트 커밋
+1. 증거 JSON 재생성 완료
+   - `$env:PYTHONPATH = (Get-Location).Path` 설정 후 `python scripts/generate_phase6_evidence.py` 실행
+   - 이전 세션의 `ModuleNotFoundError: No module named 'domains'`는 PYTHONPATH 설정으로 해소
+2. 재생성 값 검증 완료
+   - `evidence/phase-6-management-system-prototype.json`: Pytest 202, Vitest 25, Playwright 18, 합계 245, failures 0
+   - `evidence/phase-6-management-system-prototype.index.json`의 `file_sha256`가 실제 파일 SHA-256(`14dd1ae1…`)과 일치 확인
+3. `python scripts/write_handover.py` 실행 완료 (`HANDOVER.md Phase 6 markers verified`)
+4. `git diff --check` 확인: `HANDOVER.md:3` 문서 스타일상의 의도적 markdown 개행(trailing space 2칸) 경고 1건만 존재하며 문서 전반의 기존 컨벤션과 동일, 그 외 화이트스페이스 오류 없음
+5. 체크포인트 커밋 완료: `05b6674 feat: rework CEO cockpit into today-sales + six-tab dashboard` (29 files, +375/-500)
+   - 로컬 툴링 상태 디렉터리 `.omc/`는 `.gitignore`에 추가
 
 ### 재시도·제한사항 기록
 
@@ -262,5 +256,7 @@ python scripts/generate_phase6_evidence.py
 ### Git 기준점
 
 - 브랜치: `codex/phase-6-management-prototype`
-- 이전 커밋: `473191b feat: add DAMGA management system prototype`
-- 본 대시보드 개편 변경은 인수인계 작성 시점에 아직 커밋되지 않았으므로 반드시 `git status`를 먼저 확인할 것
+- 커밋 이력:
+  - `473191b feat: add DAMGA management system prototype`
+  - `05b6674 feat: rework CEO cockpit into today-sales + six-tab dashboard` ← 현재 HEAD
+- 대시보드 개편과 마감 작업(증거 재생성·검증·커밋)까지 모두 반영됨. 작업 트리 clean.
