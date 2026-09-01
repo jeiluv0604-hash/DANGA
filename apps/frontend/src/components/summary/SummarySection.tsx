@@ -78,7 +78,7 @@ export const SummarySection: React.FC<SummarySectionProps> = ({ summary }) => {
         </div>
 
         <div style={{ backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px' }}>
-          <div style={{ fontSize: '11px', color: '#94a3b8' }}>총 공헌이익 / 평균 이익률</div>
+          <div style={{ fontSize: '11px', color: '#94a3b8' }}>총 영업이익 / 평균 영업이익률</div>
           <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#10b981', marginTop: '2px' }}>
             {formatWonSummary(summary.total_contribution)}
           </div>

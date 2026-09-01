@@ -65,6 +65,7 @@ export interface ManagementPrototype {
       metrics: Record<string, { actual: number; budget: number; variance: number; variance_ratio: number }>;
     }>;
     allocation_policy_status: string;
+    annualized_sales_baseline?: number;
   };
   menu_engineering: {
     menus: MenuEngineeringItem[];

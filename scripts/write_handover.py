@@ -12,16 +12,15 @@ handover = root / "HANDOVER.md"
 content = handover.read_text(encoding="utf-8")
 
 required_markers = (
-    "v1.1.0",
+    "v1.2.0",
     "Phase 6",
     "담가화로구이",
     "SYNTHETIC",
     "UNVERIFIED POLICY",
-    "244 PASS",
+    "245 PASS",
 )
 missing = [marker for marker in required_markers if marker not in content]
 if missing:
     raise SystemExit(f"HANDOVER.md is incomplete; missing markers: {missing}")
 
 print("HANDOVER.md Phase 6 markers verified; no file was overwritten.")
-

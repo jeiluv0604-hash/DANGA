@@ -37,7 +37,7 @@ export const RULE_REGISTRY: Record<string, RuleMeta> = {
   },
   'R-PRO-01': {
     name: '매출 증가 대비 수익성 악화',
-    description: '매출은 증가했으나 공헌이익률이 하락하여 수익성 역행이 발생했습니다.',
+    description: '매출은 증가했으나 영업이익률이 하락하여 수익성 역행이 발생했습니다.',
     category: 'PROFIT',
   },
   'R-DQ-01': {

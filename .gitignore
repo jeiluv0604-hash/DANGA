@@ -15,4 +15,5 @@ evidence/EV-INTEGRATION-*.json
 evidence/EV-GOLDEN-*.json
 evidence/EV-PERSISTENCE-*.json
 evidence/EV-STORAGE-*.json
+.omc/
 

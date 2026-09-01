@@ -13,6 +13,7 @@ test.describe('DAMGA-OPS CEO Cockpit E2E Tests', () => {
 
     // Verify Labor Ratio 35.5% & Alert
     await expect(page.locator('text=35.5%')).toBeVisible();
+    await page.getByRole('tab', { name: '오늘의 경영이상 정보' }).click();
     await expect(page.getByTestId('alert-card').getByText('인건비율 기준 초과')).toBeVisible();
 
     // Take Normal Day Screenshot
@@ -44,6 +45,7 @@ test.describe('DAMGA-OPS CEO Cockpit E2E Tests', () => {
     await page.goto('/');
     const dateInput = page.locator('input[type="date"]');
     await dateInput.fill('2026-06-12');
+    await page.getByRole('tab', { name: '오늘의 경영이상 정보' }).click();
 
     // Click Evidence button on Alert
     const evButton = page.locator('button:has-text("Evidence 확인")').first();
@@ -62,7 +64,7 @@ test.describe('DAMGA-OPS CEO Cockpit E2E Tests', () => {
   test('E2E-04: Verify 7-Day Trend Charts rendering', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByTestId('trend-charts')).toBeVisible();
-    await expect(page.locator('text=최근 7일 경영 추세')).toBeVisible();
+    await expect(page.getByRole('heading', { name: '최근 7일 경영 추세 (7-Day Trends)', exact: true })).toBeVisible();
   });
 
   test('E2E-05: Tablet / Mobile Responsive Layout Viewport', async ({ page }) => {
@@ -81,9 +83,9 @@ test.describe('DAMGA-OPS CEO Cockpit E2E Tests', () => {
     const dateInput = page.locator('input[type="date"]');
     await dateInput.fill('2026-06-12');
 
-    await expect(page.locator('text=AI 경영 분석 브리핑 & 의사결정 지원')).toBeVisible();
-    await expect(page.locator('text=Executive Summary')).toBeVisible();
-    await expect(page.locator('text=권고 조치 및 경영진 결재 (Human Approval)')).toBeVisible();
+    await expect(page.locator('text=AI 경영분석 및 의사결정 지원')).toBeVisible();
+    await expect(page.locator('text=오늘의 결론')).toBeVisible();
+    await expect(page.getByRole('heading', { name: '우선 조치', exact: true })).toBeVisible();
 
     // Take Analyst Briefing Screenshot
     await page.screenshot({ path: '../../evidence/EV-UI-ANALYST-BRIEF-20260612.png', fullPage: true });
@@ -94,10 +96,10 @@ test.describe('DAMGA-OPS CEO Cockpit E2E Tests', () => {
     const dateInput = page.locator('input[type="date"]');
     await dateInput.fill('2026-06-12');
 
-    const approveBtn = page.locator('button:has-text("승인 (Approve)")');
+    const approveBtn = page.getByRole('button', { name: '승인' });
     if (await approveBtn.isVisible()) {
       await approveBtn.click();
-      await expect(page.locator('text=경영진 승인 완료 (APPROVED)')).toBeVisible();
+      await expect(page.locator('text=승인 완료')).toBeVisible();
     }
   });
 
@@ -106,19 +108,23 @@ test.describe('DAMGA-OPS CEO Cockpit E2E Tests', () => {
     const dateInput = page.locator('input[type="date"]');
     await dateInput.fill('2026-08-21');
 
-    await expect(page.locator('text=AI 분석 차단 (DATA_INCOMPLETE)')).toBeVisible();
+    await expect(page.locator('text=분석 차단')).toBeVisible();
     await expect(page.locator('text=필수 입력 데이터(Food_Cost)가 누락되어')).toBeVisible();
   });
 
-  test('E2E-09: Management System Prototype is synthetic and policy-safe', async ({ page }) => {
+  test('E2E-09: Six dashboard tabs are navigable and policy-safe', async ({ page }) => {
     await page.goto('/');
-    const management = page.getByTestId('management-system-prototype');
-    await expect(management).toBeVisible();
-    await expect(management.getByText('담가화로구이 경영체계 프로토타입')).toBeVisible();
-    await expect(management.getByText('SYNTHETIC · 실제 담가화로구이 매장 데이터 아님')).toBeVisible();
-    await expect(management.getByText('UNVERIFIED POLICY').first()).toBeVisible();
-    await expect(management.getByText('Recipe/BOM · 메뉴 ABCD')).toBeVisible();
-    await expect(management.getByText(/OPEN → IN_PROGRESS → CLOSED → VERIFIED/)).toBeVisible();
+    await expect(page.getByRole('heading', { name: '오늘 매출' })).toBeVisible();
+    await expect(page.getByRole('tab')).toHaveCount(6);
+    await page.getByRole('tab', { name: '월 단위 매출 정보' }).click();
+    await expect(page.getByTestId('monthly-sales-panel')).toBeVisible();
+    await expect(page.getByText('UNVERIFIED POLICY')).toBeVisible();
+    await page.getByRole('tab', { name: '연 단위 매출정보' }).click();
+    await expect(page.getByTestId('yearly-sales-panel')).toBeVisible();
+    await expect(page.getByText('연환산 예상 매출')).toBeVisible();
+    await expect(page.locator('text=공헌이익')).toHaveCount(0);
+    await expect(page.locator('text=월간 경영회의')).toHaveCount(0);
+    await expect(page.locator('text=SOP ·')).toHaveCount(0);
     await page.screenshot({ path: '../../evidence/EV-UI-MANAGEMENT-PROTOTYPE.png', fullPage: true });
   });
 });

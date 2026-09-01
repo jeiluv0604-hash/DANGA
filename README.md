@@ -42,7 +42,9 @@ python scripts/run_golden_tests.py
 - 브랜드: `담가화로구이`
 - 데이터: `SYNTHETIC · 실제 담가화로구이 매장 데이터 아님`
 - 정책: 비용 배부·메뉴 ABCD·관리자 KPI 가중치는 `UNVERIFIED POLICY`
-- 범위: 월 손익, 예산 대비 실적, 현금흐름, Recipe/BOM, 메뉴 ABCD, 조직/RACI, SOP, Action Closure, 월간 경영회의
+- 대시보드: 오늘 매출 최상단, 7일 추세·월 매출·연 매출·경영이상·재고/폐기·고객반응 6개 탭, 하단 AI 의사결정 요약
+- 표시 용어: 기존 `Contribution` 내부 필드는 화면에서 `영업이익`으로 표시
+- SOP와 월간 경영회의 데이터는 API 감사 호환성을 위해 보존하되 현재 대시보드에서는 표시하지 않음
 
 ---
 
@@ -64,6 +66,6 @@ python scripts/run_golden_tests.py
 2. **GA-002**: 육류 실재고 부족 (`Variance_kg <= -5kg`)
 3. **GA-003**: 한우 원가 압박 7일 지속 (`Food_Cost_Ratio >= 39%`)
 4. **GA-004**: 육류 폐기량 급증 (`Waste / Sold >= 5%`)
-5. **GA-005**: 매출 상승 대비 공헌이익 역행 악화
+5. **GA-005**: 매출 상승 대비 영업이익 역행 악화
 6. **GA-006**: 고객 클레임 급증 및 평점 하락
 7. **GA-007**: 필수 데이터 누락 차단 (`DATA_INCOMPLETE`)

@@ -1,7 +1,7 @@
 {
   "evidence_id": "EV-PHASE6-MANAGEMENT-SYSTEM-PROTOTYPE",
   "phase": "PHASE_6",
-  "timestamp": "2026-09-01T09:55:22.919864+00:00",
+  "timestamp": "2026-09-01T11:01:27.674317+00:00",
   "brand_name": "담가화로구이",
   "dataset_type": "SYNTHETIC",
   "data_disclosure": "SYNTHETIC · 실제 담가화로구이 매장 데이터 아님",
@@ -24,14 +24,16 @@
     "Action Closure and Audit Chain",
     "Monthly Management Review",
     "Deterministic AI Management Brief",
-    "CEO Cockpit Integration"
+    "CEO Cockpit Integration",
+    "Six-tab Dashboard Navigation",
+    "Compact Bottom AI Decision Support"
   ],
   "test_results": {
     "pytest": 202,
-    "vitest": 24,
+    "vitest": 25,
     "playwright": 18,
     "production_build": "PASS",
-    "total_automated_tests": 244,
+    "total_automated_tests": 245,
     "failures": 0
   },
   "safety": {
@@ -46,12 +48,14 @@
   "source_sha256": {
     "domains\\management\\prototype.py": "4252dd3f6b5412c72989c2a5a3910c6649c261a0b46387d831bdbffe9eb4ba8b",
     "apps\\api\\routes\\management.py": "bfc26bba44e8ddd2f55f3452400495342080f429bfc423e736ea0f47efc9d29e",
-    "apps\\frontend\\src\\components\\management\\ManagementSystemSection.tsx": "593c07465cfeb7359dc3326fbafc94cf40c4f934aea892740cdda2943c597d3a",
+    "apps\\frontend\\src\\components\\management\\ManagementSystemSection.tsx": "5aa2bf41cfe41dc006e82fb201f9a5a1edb678f728120b44c38448bbaae06acf",
+    "apps\\frontend\\src\\components\\analyst\\AnalystBriefingSection.tsx": "0ac491182c4bbe51e18cf117464c79939e57e5f513e41a95f5724a7bc1efb56b",
+    "apps\\frontend\\src\\pages\\CeoCockpitPage.tsx": "486a69838463d83f61a03489d95c2330e996fff2dee3c42f35387c68a59bd0ed",
     "tests\\management\\test_management_prototype.py": "b3f6f3043c1836094639c40cb7b4ade19f51acc4bbdf30554369bc238dc32693"
   },
   "screenshot": {
     "path": "evidence\\EV-UI-MANAGEMENT-PROTOTYPE.png",
-    "sha256": "214797e9402de0c32ff149109d4979f98b0a853e98155b66f4a566685639f738"
+    "sha256": "4b5dabf26d40dcada9a5544cab1b08a99b9fb4a2f3fc2539029388d1251247d0"
   },
   "overall_status": "PASS"
 }

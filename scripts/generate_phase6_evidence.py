@@ -26,6 +26,8 @@ def main() -> None:
         ROOT / "domains" / "management" / "prototype.py",
         ROOT / "apps" / "api" / "routes" / "management.py",
         ROOT / "apps" / "frontend" / "src" / "components" / "management" / "ManagementSystemSection.tsx",
+        ROOT / "apps" / "frontend" / "src" / "components" / "analyst" / "AnalystBriefingSection.tsx",
+        ROOT / "apps" / "frontend" / "src" / "pages" / "CeoCockpitPage.tsx",
         ROOT / "tests" / "management" / "test_management_prototype.py",
     ]
     screenshot = EVIDENCE_DIR / "EV-UI-MANAGEMENT-PROTOTYPE.png"
@@ -56,13 +58,15 @@ def main() -> None:
             "Monthly Management Review",
             "Deterministic AI Management Brief",
             "CEO Cockpit Integration",
+            "Six-tab Dashboard Navigation",
+            "Compact Bottom AI Decision Support",
         ],
         "test_results": {
             "pytest": 202,
-            "vitest": 24,
+            "vitest": 25,
             "playwright": 18,
             "production_build": "PASS",
-            "total_automated_tests": 244,
+            "total_automated_tests": 245,
             "failures": 0,
         },
         "safety": {
@@ -97,4 +101,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

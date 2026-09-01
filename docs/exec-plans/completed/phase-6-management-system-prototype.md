@@ -17,6 +17,10 @@
 - [x] SOP·Checklist·Action Closure 프로토타입
 - [x] 월간 Management Review
 - [x] Management API 및 CEO Cockpit 화면
+- [x] 오늘 매출 최상단 및 6개 업무 탭으로 대시보드 개편
+- [x] SOP·월간 경영회의 화면 제거(API 원본은 감사 호환용 보존)
+- [x] 사용자 표시 용어를 영업이익으로 통일
+- [x] AI 경영분석을 하단 핵심 요약 카드로 축소
 
 ## 정책 경계
 
@@ -27,7 +31,7 @@
 ## 완료 전 검증
 
 - [x] 전체 Pytest 회귀 테스트: 202 PASS
-- [x] 전체 Vitest 회귀 테스트: 24 PASS
+- [x] 전체 Vitest 회귀 테스트: 25 PASS
 - [x] Playwright E2E: 18 PASS
 - [x] Production build: PASS
 - [x] API live smoke test: PASS

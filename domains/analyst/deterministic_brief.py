@@ -37,7 +37,7 @@ class DeterministicAnalyst:
                 executive_summary=f"필수 입력 데이터({', '.join(missing)})가 누락되어 자동 경영 분석 및 원인 추정이 차단되었습니다.",
                 findings=[
                     FindingItem(
-                        finding=f"필수 데이터 결측으로 인해 식재료 원가율 및 공헌이익이 계산 불가 상태입니다.",
+                        finding=f"필수 데이터 결측으로 인해 식재료 원가율 및 영업이익이 계산 불가 상태입니다.",
                         severity="CRITICAL",
                         rule_id="R-DQ-01",
                         evidence_ids=[f"EV-BLOCKED-{context.business_date}"]
@@ -249,7 +249,7 @@ class DeterministicAnalyst:
 
                 elif rule_id == "R-PRO-01":
                     findings.append(FindingItem(
-                        finding=f"매출은 증가했으나 공헌이익률이 하락하는 수익성 역행 현상이 감지되었습니다.",
+                        finding=f"매출은 증가했으나 영업이익률이 하락하는 수익성 역행 현상이 감지되었습니다.",
                         severity="HIGH",
                         rule_id="R-PRO-01",
                         evidence_ids=[ev_id]
@@ -257,11 +257,11 @@ class DeterministicAnalyst:
                     possible_causes.append(PossibleCauseItem(
                         hypothesis="매출 성장을 위한 할인/프로모션 과다 또는 초과 비용 투입 가능성",
                         confidence="HIGH",
-                        basis="매출 증대 대비 공헌이익률 하락 관측",
+                        basis="매출 증대 대비 영업이익률 하락 관측",
                         evidence_ids=[ev_id]
                     ))
                     recommended_actions.append(RecommendedActionItem(
-                        action="프로모션별 공헌이익 기여도 및 마진 구조를 재평가하십시오.",
+                        action="프로모션별 영업이익 기여도 및 마진 구조를 재평가하십시오.",
                         owner_role="CEO",
                         priority="HIGH",
                         approval_required=True,

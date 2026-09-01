@@ -304,7 +304,7 @@ RULES = [
         "metric": "contribution_ratio",
         "threshold": "Reversal",
         "operator": "reversal",
-        "description": "매출 증가에도 공헌이익률 하락(수익성 역행)"
+        "description": "매출 증가에도 영업이익률 하락(수익성 역행)"
     }
 ]
 

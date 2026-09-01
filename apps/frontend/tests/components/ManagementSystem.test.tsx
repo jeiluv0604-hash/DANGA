@@ -50,15 +50,22 @@ const prototype: ManagementPrototype = {
 };
 
 
-describe('Management System Prototype', () => {
-  it('renders synthetic disclosure, policy status, finance, menu and action closure', async () => {
+describe('Management Sales Tabs', () => {
+  it('renders monthly sales and operating profit without SOP or monthly meeting', async () => {
     vi.spyOn(managementApi, 'getManagementPrototype').mockResolvedValue(prototype);
-    render(<ManagementSystemSection />);
-    expect(await screen.findByText('담가화로구이 경영체계 프로토타입')).toBeInTheDocument();
-    expect(screen.getByText('SYNTHETIC · 실제 담가화로구이 매장 데이터 아님')).toBeInTheDocument();
-    expect(screen.getAllByText('UNVERIFIED POLICY').length).toBeGreaterThan(0);
-    expect(screen.getByText('담가 갈비')).toBeInTheDocument();
-    expect(screen.getByText('재고 차이 재계량 및 기록 대사')).toBeInTheDocument();
-    expect(screen.getByText(/OPEN → IN_PROGRESS → CLOSED → VERIFIED/)).toBeInTheDocument();
+    render(<ManagementSystemSection view="monthly" />);
+    expect(await screen.findByText('월 단위 매출 정보')).toBeInTheDocument();
+    expect(screen.getAllByText('영업이익').length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/UNVERIFIED POLICY/).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/SOP/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/월간 경영회의/)).not.toBeInTheDocument();
+  });
+
+  it('renders yearly sales aggregation', async () => {
+    vi.spyOn(managementApi, 'getManagementPrototype').mockResolvedValue(prototype);
+    render(<ManagementSystemSection view="yearly" />);
+    expect(await screen.findByText('2026년 매출 정보')).toBeInTheDocument();
+    expect(screen.getByText('누적 매출')).toBeInTheDocument();
+    expect(screen.getByText('연환산 예상 매출')).toBeInTheDocument();
   });
 });

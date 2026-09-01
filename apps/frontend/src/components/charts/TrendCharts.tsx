@@ -41,7 +41,7 @@ export const TrendCharts: React.FC<TrendChartsProps> = ({ facts }) => {
           최근 7일 경영 추세 (7-Day Trends)
         </h3>
         <p style={{ fontSize: '12px', color: '#94a3b8', margin: 0 }}>
-          매출·수익성 및 원가 구조의 일별 변동 흐름 (결측 일자는 선 단절 처리)
+          매출·영업이익 및 원가 구조의 일별 변동 흐름 (결측 일자는 선 단절 처리)
         </p>
       </div>
 
@@ -54,7 +54,7 @@ export const TrendCharts: React.FC<TrendChartsProps> = ({ facts }) => {
       >
         <div style={{ height: '220px' }}>
           <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#94a3b8', marginBottom: '8px' }}>
-            매출 및 공헌이익 (단위: 만원)
+            매출 및 영업이익 (단위: 만원)
           </div>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData} margin={{ top: 5, right: 15, left: -10, bottom: 5 }}>
@@ -67,7 +67,7 @@ export const TrendCharts: React.FC<TrendChartsProps> = ({ facts }) => {
               />
               <Legend wrapperStyle={{ fontSize: '11px' }} />
               <Line type="monotone" dataKey="salesMan" name="매출" stroke="#38bdf8" strokeWidth={2} dot={{ r: 3 }} connectNulls={false} />
-              <Line type="monotone" dataKey="contributionMan" name="공헌이익" stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} connectNulls={false} />
+              <Line type="monotone" dataKey="contributionMan" name="영업이익" stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} connectNulls={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>

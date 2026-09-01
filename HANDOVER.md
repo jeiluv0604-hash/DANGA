@@ -1,6 +1,6 @@
 # 📋 DAMGA-OPS 프로젝트 개발 인수인계서 (Handover Guide)
 
-> **문서 버전**: v1.1.0 (Phase 6 경영체계 프로토타입 완료 시점)  
+> **문서 버전**: v1.2.0 (Phase 6 탭형 대시보드 개편 완료 시점)  
 > **대상 시스템**: 담가화로구이 외식업 통합 경영자동화 Cockpit (DAMGA-OPS)  
 > **후속 작업자**: OpenAI Codex / 차기 AI 에이전트 및 백엔드/프론트엔드 엔지니어  
 > **최상위 원칙**: `docs/product/master-specification-v1.0.md`, `AGENTS.md`, `docs/quality/golden-principles.md`
@@ -24,7 +24,7 @@
 
 ---
 
-## 2. 완료된 Phase별 구현 내역 (Completed Work: Phase 1 ~ Phase 5)
+## 2. 완료된 Phase별 구현 내역 (Completed Work: Phase 1 ~ Phase 6)
 
 | Phase | 주요 구현 내용 | 검증 결과 |
 |---|---|---|
@@ -33,11 +33,11 @@
 | **Phase 2** | **API & Storage Foundation**: FastAPI REST API, SQLite ORM 저장소, Synthetic 데이터 적재 파이프라인, Evidence 파일 저장. | PASS |
 | **Phase 2.1** | **Data Semantics & Evidence Linkage**: Partial Facts (부분 결측 시 유효 지표 보존), Alert-Evidence 1:1 바인딩, Structured Logging. | PASS |
 | **Phase 2.2** | **Cryptographic Integrity & Missing Semantics**: Evidence 파일의 실제 바이트 SHA-256 해시 인덱스 검증, Missing!=Zero 엄격 적용. | PASS |
-| **Phase 3** | **CEO Cockpit Web Dashboard**: React 18 + Vite + TypeScript + TailwindCSS + Recharts 대시보드, 6대 KPI 카드, 7일 추세 차트, 증적 서랍. | PASS |
+| **Phase 3** | **CEO Cockpit Web Dashboard**: React 18 + Vite + TypeScript + Recharts 대시보드, 오늘 매출 최상단, 6개 업무 탭, 7일 추세 차트, 증적 서랍. | PASS |
 | **Phase 4** | **AI Analyst & Human-in-the-Loop**: Facts 기반 일일 브리핑, 원인 가설, 휴먼 승인/반려 시뮬레이션 워크플로우, Decision Action 저장. | PASS |
 | **Phase 4.1** | **AI Grounding & Safety Hardening**: Semantic FactRef 바인딩, Provider 장애 시 명시적 실패(`PROVIDER_UNAVAILABLE`), 해시 체인 감사 로그. | PASS |
 | **Phase 5** | **Real-Data Readiness & Shadow Mode**: Generic CSV/XLSX 어댑터, 4대 도메인 Canonical 스키마, 매핑 매니페스트, 격리 레이어(Quarantine), PII 보호(Sensitive Column Detector), 대사(Reconciliation) 엔진, Alembic 마이그레이션. | PASS |
-| **Phase 6** | **담가화로구이 Management System Prototype**: 6개월 Synthetic 재무, 일일 10 KPI, 월 손익, Budget vs Actual, Cash Flow, Recipe/BOM, 메뉴 ABCD, 조직/RACI, 관리자 Scorecard, 전결정책, SOP/Checklist, Action Closure, 월간 경영회의 및 Management Brief. | PASS |
+| **Phase 6** | **담가화로구이 Management System Prototype**: 6개월 Synthetic 재무, 월·연 단위 매출, 6개 탭형 화면, 간소화한 하단 AI 의사결정 지원. SOP·월간회의는 API에 보존하고 화면에서 제외. | PASS |
 
 ---
 
@@ -78,7 +78,7 @@ c:\Users\a\damga/
 │       ├── src/components/    # kpi, alerts, charts, analyst, evidence, shadow badge
 │       ├── src/hooks/         # useDailyDashboard, useRecentTrends, useAnalystBrief 등
 │       └── vite.config.ts     # Vite 설정 (Host: 0.0.0.0, Port: 3000, Proxy: 8000)
-├── tests/                     # 244개 자동화 테스트 스위트
+├── tests/                     # 245개 자동화 테스트 스위트
 │   ├── unit/                  # 단위 및 경계값 테스트
 │   ├── golden/                # GA-001 ~ GA-007 골든 시나리오 테스트
 │   ├── storage/               # Evidence 해시 무결성 및 DB 저장 테스트
@@ -115,12 +115,12 @@ cd apps/frontend
 npm run dev
 ```
 
-### 5.2 전체 테스트 스위트 실행 (총 244개 테스트 100% PASS 검증)
+### 5.2 전체 테스트 스위트 실행 (총 245개 테스트 100% PASS 검증)
 ```powershell
 # 1. 백엔드/도메인/어댑터/마이그레이션 테스트 (202 tests)
 python -m pytest tests/ -v
 
-# 2. 프론트엔드 유닛/컴포넌트 테스트 (24 tests)
+# 2. 프론트엔드 유닛/컴포넌트 테스트 (25 tests)
 cd apps/frontend
 cmd /c "npm run test"
 
@@ -163,13 +163,24 @@ cmd /c "npm run test:e2e"
 
 자동 가격 변경, 자동 발주·지급, 자동 인사평가·승진·보상·징계·해고는 비활성화되어 있다. Action 상태변경은 Human Approval과 SHA-256 감사 이벤트를 남긴다.
 
+현재 CEO Cockpit은 오늘 매출을 가장 위에 표시하고 다음 6개 탭으로 구성한다.
+
+1. 오늘 및 최근 7일 경영 추세
+2. 월 단위 매출 정보
+3. 연 단위 매출정보
+4. 오늘의 경영이상 정보
+5. 식재료 재고 및 폐기상태
+6. 고객 반응 및 서비스 품질
+
+AI 경영분석은 전체 대시보드 하단에서 결론·핵심 이상·우선 조치만 표시한다. SOP와 월간 경영회의는 대시보드에서 제거됐으나 API 호환성과 감사 추적을 위해 원본 Synthetic 구조는 보존한다. 사용자 표시 용어는 `영업이익`이며 내부 호환 필드명 `contribution`은 변경하지 않았다.
+
 ### Phase 6 검증 결과
 
 - Pytest: `202 PASS`
-- Vitest: `24 PASS`
+- Vitest: `25 PASS`
 - Playwright: `18 PASS` (Chromium + Tablet)
 - Production build: `PASS`
-- 합계: `244 PASS / 0 failures`
+- 합계: `245 PASS / 0 failures`
 - Live API: `http://127.0.0.1:8000`, version `6.0.0-prototype`
 - Frontend: `http://127.0.0.1:3000`
 - Visual Evidence: `evidence/EV-UI-MANAGEMENT-PROTOTYPE.png`
@@ -181,3 +192,75 @@ cmd /c "npm run test:e2e"
 ```
 
 Bootstrap은 `.venv` 생성, 고정 버전 의존성 설치, Alembic upgrade, Pytest, Vitest, production build를 순서대로 수행한다.
+
+---
+
+## 8. Claude Code 즉시 인수인계 — 2026-09-01
+
+### 이번 작업에서 완료한 대시보드 변경
+
+- 오늘 매출을 대시보드 최상단 단독 핵심 카드로 이동
+- 다음 6개 클릭형 탭 구현
+  1. 오늘 및 최근 7일 경영 추세
+  2. 월 단위 매출 정보
+  3. 연 단위 매출정보
+  4. 오늘의 경영이상 정보
+  5. 식재료 재고 및 폐기상태
+  6. 고객 반응 및 서비스 품질
+- SOP와 월간 경영회의를 화면에서 제거
+  - 백엔드/API 원본은 감사 호환성을 위해 삭제하지 않음
+- 사용자 화면과 AI 표시의 `공헌이익` 용어를 `영업이익`으로 변경
+  - 계산 및 API 호환을 위해 내부 필드 `contribution`, `contribution_ratio`는 유지
+- AI 경영분석 및 의사결정 지원을 전체 화면 하단으로 이동
+- AI 영역을 `오늘의 결론`, `핵심 이상` 최대 3개, `우선 조치` 최대 3개로 축약
+- 대표/총괄점장 승인·반려 및 Human Approval 안전 경계 유지
+
+### 현재 검증된 결과
+
+- `python -m pytest -q`: 202 PASS
+- `npm test -- --run`: 25 PASS
+- `npm run test:e2e`: 18 PASS (Chromium 9 + Tablet 9)
+- `npm run build`: PASS
+- 합계: 245 PASS / 0 failures
+- 실제 브라우저에서 6개 탭 전환과 최종 레이아웃 확인 완료
+- 기존 경고: Pytest deprecation 1,847건, Vite bundle 500 kB 초과 경고 1건
+
+### 실행 상태
+
+- Frontend: `http://127.0.0.1:3000`
+- API: `http://127.0.0.1:8000`
+- API health: `GET /health` 정상
+- 현재 API PID는 작업 시점 기준 `23748`이나 Claude Code 시작 시 포트로 재확인할 것
+
+### 남은 정확한 작업
+
+1. 증거 JSON 재생성
+   - 직전 직접 실행은 `ModuleNotFoundError: No module named 'domains'`로 1회 실패
+   - 프로젝트 루트를 Python path에 포함해 실행:
+
+```powershell
+$env:PYTHONPATH = (Get-Location).Path
+python scripts/generate_phase6_evidence.py
+```
+
+2. 생성 후 다음 값 확인
+   - `evidence/phase-6-management-system-prototype.json`
+   - Vitest 25, Playwright 18, Pytest 202, 합계 245
+   - `evidence/phase-6-management-system-prototype.index.json`의 SHA-256 일치
+3. `python scripts/write_handover.py` 실행
+4. `git diff --check`와 `git status` 확인
+5. 모든 변경을 체크포인트 커밋
+
+### 재시도·제한사항 기록
+
+- 단위 테스트 문구 선택자 실패 1회 후 해결
+- TypeScript 아이콘 타입 오류 1회 후 해결
+- 브라우저 E2E 1차 12/18 통과: 탭 이동 순서와 중복 텍스트 선택자 문제였으며 2차 18/18 통과
+- API 재시작 검색식이 자기 셸을 포함한 문제 1회 후, 포트 8000의 PID를 직접 검증하여 해결
+- 어떤 동일 제한사항도 3회에 도달하지 않음
+
+### Git 기준점
+
+- 브랜치: `codex/phase-6-management-prototype`
+- 이전 커밋: `473191b feat: add DAMGA management system prototype`
+- 본 대시보드 개편 변경은 인수인계 작성 시점에 아직 커밋되지 않았으므로 반드시 `git status`를 먼저 확인할 것

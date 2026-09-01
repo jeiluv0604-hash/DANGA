@@ -7,9 +7,10 @@ interface KpiGridProps {
   kpis: DailyKpis;
   kpiStatus: KpiStatusMap;
   alerts: DailyAlert[];
+  includeSales?: boolean;
 }
 
-export const KpiGrid: React.FC<KpiGridProps> = ({ kpis, kpiStatus, alerts }) => {
+export const KpiGrid: React.FC<KpiGridProps> = ({ kpis, kpiStatus, alerts, includeSales = true }) => {
   const hasLaborAlert = alerts.some((a) => a.rule_id === 'R-LAB-01');
   const hasFoodCostAlert = alerts.some((a) => a.rule_id === 'R-FC-01');
 
@@ -22,12 +23,14 @@ export const KpiGrid: React.FC<KpiGridProps> = ({ kpis, kpiStatus, alerts }) => 
         marginBottom: '24px',
       }}
     >
-      <KpiHeroCard
-        title="오늘 매출 (Sales)"
-        primaryValue={formatWon(kpis.sales, kpiStatus.sales)}
-        subValue={`고객 ${kpis.guests ? `${kpis.guests}명` : '데이터 없음'}`}
-        secondaryText={`객단가 ${formatWon(kpis.avg_check, kpiStatus.avg_check)}`}
-      />
+      {includeSales && (
+        <KpiHeroCard
+          title="오늘 매출 (Sales)"
+          primaryValue={formatWon(kpis.sales, kpiStatus.sales)}
+          subValue={`고객 ${kpis.guests ? `${kpis.guests}명` : '데이터 없음'}`}
+          secondaryText={`객단가 ${formatWon(kpis.avg_check, kpiStatus.avg_check)}`}
+        />
+      )}
 
       <KpiHeroCard
         title="인건비율 (Labor Ratio)"
@@ -49,9 +52,9 @@ export const KpiGrid: React.FC<KpiGridProps> = ({ kpis, kpiStatus, alerts }) => 
       />
 
       <KpiHeroCard
-        title="공헌이익 (Contribution)"
+        title="영업이익"
         primaryValue={formatWon(kpis.contribution, kpiStatus.contribution)}
-        subValue={`공헌이익률 ${formatPercent(kpis.contribution_ratio, kpiStatus.contribution_ratio)}`}
+        subValue={`영업이익률 ${formatPercent(kpis.contribution_ratio, kpiStatus.contribution_ratio)}`}
         secondaryText="매출 - (인건비 + 식재료비)"
         isBlocked={kpiStatus.contribution === 'BLOCKED_DEPENDENCY'}
       />

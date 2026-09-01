@@ -61,8 +61,8 @@ describe('Analyst Briefing Section Tests (UI-AI-001 ~ UI-AI-006)', () => {
     });
 
     render(<AnalystBriefingSection date="2026-06-12" onOpenEvidence={() => {}} />);
-    expect(screen.getByText('AI 경영 분석 브리핑 & 의사결정 지원')).toBeInTheDocument();
-    expect(screen.getByText('mock-analyst-gpt4o-mini-simulator')).toBeInTheDocument();
+    expect(screen.getByText('AI 경영분석 및 의사결정 지원')).toBeInTheDocument();
+    expect(screen.getByText('오늘의 결론')).toBeInTheDocument();
     expect(screen.getAllByText(/인건비율이 35.5%로 관리 기준/)[0]).toBeInTheDocument();
   });
 
@@ -82,11 +82,11 @@ describe('Analyst Briefing Section Tests (UI-AI-001 ~ UI-AI-006)', () => {
     });
 
     render(<AnalystBriefingSection date="2026-06-12" onOpenEvidence={() => {}} />);
-    expect(screen.getByText(/경영진 검토 대기/)).toBeInTheDocument();
-    expect(screen.getByText('승인 (Approve)')).toBeInTheDocument();
-    expect(screen.getByText('반려 (Reject)')).toBeInTheDocument();
+    expect(screen.getByText(/검토 대기/)).toBeInTheDocument();
+    expect(screen.getByText('승인')).toBeInTheDocument();
+    expect(screen.getByText('반려')).toBeInTheDocument();
 
-    fireEvent.click(screen.getByText('승인 (Approve)'));
+    fireEvent.click(screen.getByText('승인'));
     expect(handleApprove).toHaveBeenCalled();
   });
 
@@ -109,8 +109,8 @@ describe('Analyst Briefing Section Tests (UI-AI-001 ~ UI-AI-006)', () => {
     });
 
     render(<AnalystBriefingSection date="2026-08-21" onOpenEvidence={() => {}} />);
-    expect(screen.getByText(/AI 분석 차단/)).toBeInTheDocument();
-    expect(screen.queryByText('승인 (Approve)')).not.toBeInTheDocument();
+    expect(screen.getByText(/분석 차단/)).toBeInTheDocument();
+    expect(screen.queryByText('승인')).not.toBeInTheDocument();
   });
 
   it('UI-AI-004: Displays synthetic dataset disclosure warning', () => {
@@ -126,7 +126,7 @@ describe('Analyst Briefing Section Tests (UI-AI-001 ~ UI-AI-006)', () => {
     });
 
     render(<AnalystBriefingSection date="2026-06-12" onOpenEvidence={() => {}} />);
-    expect(screen.getByText(/SYNTHETIC DATASET: 실제 매장 데이터가 아닌 합성 데이터 기반 분석입니다/)).toBeInTheDocument();
+    expect(screen.getByText(/SYNTHETIC · 실제 매장 데이터가 아닌 가상 데이터 분석/)).toBeInTheDocument();
   });
 
   it('UI-AI-005: Clicking Evidence link calls onOpenEvidence', () => {
@@ -143,7 +143,7 @@ describe('Analyst Briefing Section Tests (UI-AI-001 ~ UI-AI-006)', () => {
     });
 
     render(<AnalystBriefingSection date="2026-06-12" onOpenEvidence={onOpenEvidence} />);
-    const evBtn = screen.getByText('🔗 EV-ALT-2026-06-12-R-LAB-01');
+    const evBtn = screen.getAllByText(/인건비율이 35.5%로 관리 기준/)[1];
     fireEvent.click(evBtn);
     expect(onOpenEvidence).toHaveBeenCalledWith('EV-ALT-2026-06-12-R-LAB-01');
   });
