@@ -1,0 +1,21 @@
+{
+  "mapping_id": "MAP-INV-GENERIC-V1",
+  "source_type": "INVENTORY",
+  "mapping_version": "1.0.0",
+  "status": "CONFIRMED",
+  "column_mappings": {
+    "조사일자": "business_date",
+    "품목코드": "item_id",
+    "품목명": "item_name",
+    "기초재고": "opening_qty",
+    "입고량": "incoming_qty",
+    "판매량": "sold_qty",
+    "서비스량": "service_qty",
+    "폐기량": "waste_qty",
+    "직원식사량": "staff_meal_qty",
+    "이동수량": "transfer_qty",
+    "이론재고": "theory_end_qty",
+    "실사재고": "actual_end_qty",
+    "단위": "unit"
+  }
+}

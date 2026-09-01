@@ -1,0 +1,13 @@
+{
+  "evidence_id": "EV-INGESTION-20260901-133259",
+  "timestamp": "2026-09-01T13:32:59.817248",
+  "type": "EV-INGESTION",
+  "dataset_sha256": "2132542be216b1cd5c610036f3c5207e189023a63e6a2aed1d3e87eeda2745cc",
+  "dataset_type": "SYNTHETIC",
+  "row_count": 92,
+  "valid_row_count": 91,
+  "blocked_row_count": 1,
+  "duplicate_ingestion_prevented": true,
+  "idempotency_status": "ALREADY_INGESTED",
+  "status": "PASS"
+}

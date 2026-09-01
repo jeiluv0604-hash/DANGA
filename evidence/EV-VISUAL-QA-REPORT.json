@@ -1,0 +1,38 @@
+{
+  "evidence_id": "EV-VISUAL-QA-REPORT",
+  "phase": "PHASE_3",
+  "category": "VISUAL_REGRESSION_AUDIT",
+  "timestamp": "2026-09-01T06:13:20.231810",
+  "dataset_sha256": "c61235a0ca1f7e2b82cfd3555d376eb0f84e6680425b300fd1e1c9e2c958e715",
+  "screenshots": [
+    {
+      "file": "evidence/EV-UI-NORMAL-20260612.png",
+      "sha256": "c68657a470cebfa256d86c84e6c1d8a5cba83e86850ad4aa49a3465a0b5e16c5",
+      "scenario": "Normal day (2026-06-12) with R-LAB-01 Alert"
+    },
+    {
+      "file": "evidence/EV-UI-DATA-INCOMPLETE-20260821.png",
+      "sha256": "49791fc4437eb4de082c54c389be860bbc57c8f2023dc82accfbee92e22d63a3",
+      "scenario": "DATA_INCOMPLETE day (2026-08-21) partial facts intact"
+    },
+    {
+      "file": "evidence/EV-UI-EVIDENCE-DRAWER.png",
+      "sha256": "e7585ce14b84f977bc4f738c486dd08b97b162eae31b1af6eb15ff283e043a90",
+      "scenario": "Evidence Drawer verifying SHA-256 integrity"
+    },
+    {
+      "file": "evidence/EV-UI-RESPONSIVE-TABLET.png",
+      "sha256": "d20fb6b76fab389925e315e1cfd421c1752d99dc8abbe4f6966fa914cdcd67c9",
+      "scenario": "Tablet responsive layout (820x1180)"
+    }
+  ],
+  "principles_verified": [
+    "GP-01: No frontend business logic calculation",
+    "GP-02: Missing != Zero strictly distinguished",
+    "GP-05: No accusation words used for inventory differences",
+    "Permanent Synthetic Badge in header",
+    "Independent facts preserved during partial input missing"
+  ],
+  "status": "PASS",
+  "file_sha256": "0b7bd19b48fbd0a5e870e54f13baa4ad58139577e95eb545f2746c19d0b819e1"
+}

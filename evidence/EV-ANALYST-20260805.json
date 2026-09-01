@@ -1,0 +1,58 @@
+{
+  "evidence_id": "EV-ANALYST-20260805",
+  "business_date": "2026-08-05",
+  "rule_evaluated": "R-CUS-01",
+  "brief": {
+    "status": "READY",
+    "business_date": "2026-08-05",
+    "dataset_disclosure": "SYNTHETIC",
+    "executive_summary": "2026-08-05 영업 분석: 고객 만족도 및 서비스 품질 점검 필요 등의 경영 이상이 감지되어 현장 확인 및 조치가 권고됩니다.",
+    "findings": [
+      {
+        "finding": "고객 불만 접수 또는 고객 평점 이상(Complaints=6, Rating=3.9)이 감지되었습니다.",
+        "severity": "MEDIUM",
+        "rule_id": "R-CUS-01",
+        "evidence_ids": [
+          "EV-ALT-2026-08-05-R-CUS-01"
+        ]
+      }
+    ],
+    "possible_causes": [
+      {
+        "hypothesis": "피크 시간대 서빙 대기 지연 또는 특정 테이블 서비스 응대 이슈 가능성",
+        "confidence": "MEDIUM",
+        "basis": "고객 VOC/평점 이상 관측",
+        "evidence_ids": [
+          "EV-ALT-2026-08-05-R-CUS-01"
+        ]
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "당일 접수된 고객 VOC 내용과 피크 시간대 홀 동선을 점검하십시오.",
+        "owner_role": "FLOOR_MANAGER",
+        "priority": "MEDIUM",
+        "approval_required": true,
+        "evidence_ids": [
+          "EV-ALT-2026-08-05-R-CUS-01"
+        ]
+      }
+    ],
+    "unknowns": [
+      "현장 상세 정성적 원인(CCTV/직접확인 필요)"
+    ],
+    "missing_inputs": [],
+    "available_facts": [
+      "complaints",
+      "rating"
+    ],
+    "prohibited_inference_detected": false,
+    "rejection_reasons": [],
+    "prompt_version": "v1.0",
+    "facts_version": "v1.0",
+    "rule_version": "v1.0",
+    "provider": "deterministic",
+    "model": "deterministic-rule-brief-v1"
+  },
+  "evidence_sha256": "bfc38074d20709fe87c7d0a258da48a3624abca9328f49657d92c54cb817ae1d"
+}

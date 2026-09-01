@@ -1,0 +1,48 @@
+{
+  "phase": "4.1",
+  "timestamp": "2026-09-01T06:40:34.770507+00:00",
+  "state_transitions_tested": [
+    {
+      "transition": "REVIEW_REQUIRED -> APPROVED",
+      "allowed": true,
+      "status": "PASS"
+    },
+    {
+      "transition": "REVIEW_REQUIRED -> REJECTED",
+      "allowed": true,
+      "status": "PASS"
+    },
+    {
+      "transition": "APPROVED -> APPROVED",
+      "allowed": false,
+      "http_status": 409,
+      "status": "PASS"
+    },
+    {
+      "transition": "APPROVED -> REJECTED",
+      "allowed": false,
+      "http_status": 409,
+      "status": "PASS"
+    },
+    {
+      "transition": "REJECTED -> APPROVED",
+      "allowed": false,
+      "http_status": 409,
+      "status": "PASS"
+    },
+    {
+      "transition": "REJECTED -> REJECTED",
+      "allowed": false,
+      "http_status": 409,
+      "status": "PASS"
+    }
+  ],
+  "idempotency": {
+    "repeated_calls_count": 10,
+    "unique_briefs_created": 1,
+    "status": "PASS"
+  },
+  "simulation_disclaimer": "DEVELOPMENT HUMAN APPROVAL SIMULATION",
+  "review_authentication_status": "SIMULATED",
+  "identity_verified": false
+}

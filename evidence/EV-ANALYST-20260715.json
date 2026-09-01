@@ -1,0 +1,57 @@
+{
+  "evidence_id": "EV-ANALYST-20260715",
+  "business_date": "2026-07-15",
+  "rule_evaluated": "R-FC-01-PERIOD",
+  "brief": {
+    "status": "READY",
+    "business_date": "2026-07-15",
+    "dataset_disclosure": "SYNTHETIC",
+    "executive_summary": "2026-07-15 영업 분석: 식재료 원가율 주간 연속 급등 등의 경영 이상이 감지되어 현장 확인 및 조치가 권고됩니다.",
+    "findings": [
+      {
+        "finding": "식재료 원가율이 연속 기간 동안 관리 기준(39.0%) 이상으로 지속 상승했습니다.",
+        "severity": "HIGH",
+        "rule_id": "R-FC-01-PERIOD",
+        "evidence_ids": [
+          "EV-ALT-2026-07-15-R-FC-01-PERIOD"
+        ]
+      }
+    ],
+    "possible_causes": [
+      {
+        "hypothesis": "원재료 공급가 구조적 인상 또는 원단위 손실(Yield) 저하 누적 가능성",
+        "confidence": "HIGH",
+        "basis": "연속 고원가율 추세 감지",
+        "evidence_ids": [
+          "EV-ALT-2026-07-15-R-FC-01-PERIOD"
+        ]
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "주요 육류 납품 단가 계약 조건 재검토 및 수율(Yield) 표준화를 점검하십시오.",
+        "owner_role": "GENERAL_MANAGER",
+        "priority": "HIGH",
+        "approval_required": true,
+        "evidence_ids": [
+          "EV-ALT-2026-07-15-R-FC-01-PERIOD"
+        ]
+      }
+    ],
+    "unknowns": [
+      "현장 상세 정성적 원인(CCTV/직접확인 필요)"
+    ],
+    "missing_inputs": [],
+    "available_facts": [
+      "food_cost_ratio"
+    ],
+    "prohibited_inference_detected": false,
+    "rejection_reasons": [],
+    "prompt_version": "v1.0",
+    "facts_version": "v1.0",
+    "rule_version": "v1.0",
+    "provider": "deterministic",
+    "model": "deterministic-rule-brief-v1"
+  },
+  "evidence_sha256": "d88000bf43c9a428987296cf7fd9a62e08d59e70edbf8b9281e0d169ad902e4f"
+}

@@ -1,0 +1,53 @@
+{
+  "evidence_id": "EV-ADVERSARIAL-20260901-133239",
+  "timestamp": "2026-09-01T13:32:39.887882",
+  "type": "EV-ADVERSARIAL",
+  "adversarial_dataset_hash": "5ddf999d4f028dcedaa2cba82f9ddac1097b35916032f94a1cab97565c60bbc0",
+  "tests_run": 7,
+  "scenarios_verified": [
+    {
+      "test_id": "ADV-001",
+      "rule_id": "R-LAB-01",
+      "date": "2026-10-15",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ADV-002",
+      "rule_id": "R-INV-01",
+      "date": "2026-10-22",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ADV-003",
+      "rule_id": "R-FC-01-PERIOD",
+      "dates": "2026-11-01~2026-11-07",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ADV-004",
+      "rule_id": "R-WST-01",
+      "date": "2026-11-15",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ADV-005",
+      "rule_id": "R-PRO-01",
+      "dates": "2026-11-20~2026-11-26",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ADV-006",
+      "rule_id": "R-CUS-01",
+      "date": "2026-12-05",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ADV-007",
+      "rule_id": "R-DQ-01",
+      "date": "2026-12-10",
+      "status": "PASS"
+    }
+  ],
+  "false_positives_on_clean_days": 0,
+  "status": "PASS"
+}

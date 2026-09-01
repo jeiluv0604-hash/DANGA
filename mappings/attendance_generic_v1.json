@@ -1,0 +1,18 @@
+{
+  "mapping_id": "MAP-ATT-GENERIC-V1",
+  "source_type": "ATTENDANCE",
+  "mapping_version": "1.0.0",
+  "status": "CONFIRMED",
+  "column_mappings": {
+    "근무일자": "business_date",
+    "직원번호": "employee_id",
+    "부서": "department",
+    "직책": "role",
+    "출근시간": "clock_in",
+    "퇴근시간": "clock_out",
+    "근무시간": "worked_minutes",
+    "기본근무분": "regular_minutes",
+    "연장근무분": "overtime_minutes",
+    "인건비": "labor_cost"
+  }
+}

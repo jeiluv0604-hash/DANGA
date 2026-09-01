@@ -1,0 +1,58 @@
+{
+  "evidence_id": "EV-ANALYST-20260728",
+  "business_date": "2026-07-28",
+  "rule_evaluated": "R-PRO-01",
+  "brief": {
+    "status": "READY",
+    "business_date": "2026-07-28",
+    "dataset_disclosure": "SYNTHETIC",
+    "executive_summary": "2026-07-28 영업 분석: 매출 성장 대비 수익성 악화(역행) 등의 경영 이상이 감지되어 현장 확인 및 조치가 권고됩니다.",
+    "findings": [
+      {
+        "finding": "매출은 증가했으나 공헌이익률이 하락하는 수익성 역행 현상이 감지되었습니다.",
+        "severity": "HIGH",
+        "rule_id": "R-PRO-01",
+        "evidence_ids": [
+          "EV-ALT-2026-07-28-R-PRO-01"
+        ]
+      }
+    ],
+    "possible_causes": [
+      {
+        "hypothesis": "매출 성장을 위한 할인/프로모션 과다 또는 초과 비용 투입 가능성",
+        "confidence": "HIGH",
+        "basis": "매출 증대 대비 공헌이익률 하락 관측",
+        "evidence_ids": [
+          "EV-ALT-2026-07-28-R-PRO-01"
+        ]
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "프로모션별 공헌이익 기여도 및 마진 구조를 재평가하십시오.",
+        "owner_role": "CEO",
+        "priority": "HIGH",
+        "approval_required": true,
+        "evidence_ids": [
+          "EV-ALT-2026-07-28-R-PRO-01"
+        ]
+      }
+    ],
+    "unknowns": [
+      "현장 상세 정성적 원인(CCTV/직접확인 필요)"
+    ],
+    "missing_inputs": [],
+    "available_facts": [
+      "sales",
+      "contribution"
+    ],
+    "prohibited_inference_detected": false,
+    "rejection_reasons": [],
+    "prompt_version": "v1.0",
+    "facts_version": "v1.0",
+    "rule_version": "v1.0",
+    "provider": "deterministic",
+    "model": "deterministic-rule-brief-v1"
+  },
+  "evidence_sha256": "4c9a6f5cd671a06622b2939bec4a0961fccf6e9da106cc4d9ddeea61d2ebac3c"
+}

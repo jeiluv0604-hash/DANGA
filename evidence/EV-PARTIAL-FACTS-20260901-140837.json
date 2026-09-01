@@ -1,0 +1,27 @@
+{
+  "evidence_id": "EV-PARTIAL-FACTS-20260901-140837",
+  "timestamp": "2026-09-01T14:08:37.971411",
+  "type": "EV-PARTIAL-FACTS",
+  "golden_dataset_hash": "2132542be216b1cd5c610036f3c5207e189023a63e6a2aed1d3e87eeda2745cc",
+  "ga007_test": {
+    "date": "2026-08-21",
+    "missing_field": "Food_Cost",
+    "data_status": "DATA_INCOMPLETE",
+    "blocked": true,
+    "ai_eligible": false,
+    "preserved_independent_facts": {
+      "sales": 14162000.0,
+      "guests": 419,
+      "avg_check": 33799.52,
+      "labor_cost": 3470000.0,
+      "labor_ratio": 0.24502
+    },
+    "blocked_dependent_facts": {
+      "food_cost": null,
+      "food_cost_ratio": null,
+      "contribution": null,
+      "contribution_ratio": null
+    }
+  },
+  "status": "PASS"
+}

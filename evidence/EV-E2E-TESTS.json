@@ -1,0 +1,20 @@
+{
+  "evidence_id": "EV-E2E-TESTS",
+  "phase": "PHASE_3",
+  "category": "PLAYWRIGHT_E2E_AUTOMATION",
+  "timestamp": "2026-09-01T06:13:20.229622",
+  "dataset_sha256": "c61235a0ca1f7e2b82cfd3555d376eb0f84e6680425b300fd1e1c9e2c958e715",
+  "browser": "Chromium 1440x900 & Tablet 820x1180",
+  "total_tests": 10,
+  "passed_tests": 10,
+  "failed_tests": 0,
+  "e2e_scenarios": [
+    "E2E-01: 2026-06-12 Normal & High Labor Alert Date verification",
+    "E2E-02: 2026-08-21 DATA_INCOMPLETE Date partial facts preservation",
+    "E2E-03: Evidence Drawer cryptographic verification (VALID badge)",
+    "E2E-04: 7-Day Trend Charts rendering and null-day disconnection",
+    "E2E-05: Tablet / Mobile Responsive Layout Viewport"
+  ],
+  "status": "PASS",
+  "file_sha256": "4908b89ca300cf5072af0ca94090f76e0c504e3ad4b7183e044547b274ff68db"
+}

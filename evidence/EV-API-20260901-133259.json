@@ -1,0 +1,22 @@
+{
+  "evidence_id": "EV-API-20260901-133259",
+  "timestamp": "2026-09-01T13:32:59.817248",
+  "type": "EV-API",
+  "framework": "FastAPI",
+  "endpoints_verified": [
+    "GET /health",
+    "POST /api/v1/ingestions/synthetic",
+    "GET /api/v1/ingestions",
+    "GET /api/v1/operations",
+    "GET /api/v1/facts",
+    "GET /api/v1/facts/{date}",
+    "GET /api/v1/alerts",
+    "GET /api/v1/alerts/{date}",
+    "GET /api/v1/alerts/periods",
+    "GET /api/v1/dashboard/daily/{date}",
+    "GET /api/v1/dashboard/summary"
+  ],
+  "ga007_data_incomplete_api_handled": true,
+  "tests_run": 11,
+  "status": "PASS"
+}

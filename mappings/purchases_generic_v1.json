@@ -1,0 +1,19 @@
+{
+  "mapping_id": "MAP-PUR-GENERIC-V1",
+  "source_type": "PURCHASE",
+  "mapping_version": "1.0.0",
+  "status": "CONFIRMED",
+  "column_mappings": {
+    "매입일자": "purchase_date",
+    "거래처코드": "supplier_id",
+    "카테고리": "category",
+    "품목코드": "item_id",
+    "품목명": "item_name",
+    "수량": "quantity",
+    "단위": "unit",
+    "단가": "unit_price",
+    "공급가액": "amount",
+    "부가세": "tax",
+    "계산서번호": "invoice_id"
+  }
+}

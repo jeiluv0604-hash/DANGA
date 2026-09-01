@@ -1,0 +1,26 @@
+{
+  "EV-FRONTEND-UNIT-TESTS": {
+    "file_path": "evidence/EV-FRONTEND-UNIT-TESTS.json",
+    "business_date": "2026-08-31",
+    "rule_id": "PHASE3-UI",
+    "file_sha256": "b84a93cfb2277e4d46b7b4b1e9b221f5883708da6dc56878a471b937d3bf3494",
+    "dataset_sha256": "c61235a0ca1f7e2b82cfd3555d376eb0f84e6680425b300fd1e1c9e2c958e715",
+    "created_at": "2026-09-01T06:13:20.227655"
+  },
+  "EV-E2E-TESTS": {
+    "file_path": "evidence/EV-E2E-TESTS.json",
+    "business_date": "2026-08-31",
+    "rule_id": "PHASE3-UI",
+    "file_sha256": "fabcbb695451592bb7001c1c66d60bd691aaaa042a0c43152cf19ee1119e5b8e",
+    "dataset_sha256": "c61235a0ca1f7e2b82cfd3555d376eb0f84e6680425b300fd1e1c9e2c958e715",
+    "created_at": "2026-09-01T06:13:20.229622"
+  },
+  "EV-VISUAL-QA-REPORT": {
+    "file_path": "evidence/EV-VISUAL-QA-REPORT.json",
+    "business_date": "2026-08-31",
+    "rule_id": "PHASE3-UI",
+    "file_sha256": "1ecdc292e8017df8cce6974df0990ace21f5de14e75b63458c870486a59199ae",
+    "dataset_sha256": "c61235a0ca1f7e2b82cfd3555d376eb0f84e6680425b300fd1e1c9e2c958e715",
+    "created_at": "2026-09-01T06:13:20.231810"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "evidence_id": "EV-MISSING-SEMANTICS-20260901-140837",
+  "timestamp": "2026-09-01T14:08:37.971411",
+  "type": "EV-MISSING-SEMANTICS",
+  "missing_vs_zero_principle": "STRICT_SEPARATION",
+  "service_kg_semantics": {
+    "zero_provided": "AVAILABLE (0.0 kg)",
+    "missing_and_no_theory_end": "BLOCKED_DEPENDENCY",
+    "missing_with_theory_end": "AVAILABLE (Theory used directly)"
+  },
+  "customer_optional_fields": {
+    "rating_missing": "NOT_PROVIDED (None != 0.0)",
+    "complaints_missing": "NOT_PROVIDED (None != 0)",
+    "review_count_missing": "NOT_PROVIDED (None != 0)"
+  },
+  "status": "PASS"
+}

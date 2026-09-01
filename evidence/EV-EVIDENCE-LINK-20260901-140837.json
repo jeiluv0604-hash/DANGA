@@ -1,0 +1,11 @@
+{
+  "evidence_id": "EV-EVIDENCE-LINK-20260901-140837",
+  "timestamp": "2026-09-01T14:08:37.971411",
+  "type": "EV-EVIDENCE-LINK",
+  "daily_alerts_evidence_linked_rate": "100%",
+  "period_alerts_evidence_linked_rate": "100%",
+  "orphan_alerts_count": 0,
+  "orphan_evidence_count": 0,
+  "evidence_api_verified": true,
+  "status": "PASS"
+}

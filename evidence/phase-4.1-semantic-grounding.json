@@ -1,0 +1,48 @@
+{
+  "phase": "4.1",
+  "timestamp": "2026-09-01T06:40:34.770507+00:00",
+  "attacks_tested": [
+    {
+      "id": "GROUND-01",
+      "name": "Sales Value Claimed as Labor Cost",
+      "detected": true,
+      "validator_action": "REJECT",
+      "status": "PASS"
+    },
+    {
+      "id": "GROUND-02",
+      "name": "Labor Ratio Claimed as Food Cost Ratio",
+      "detected": true,
+      "validator_action": "REJECT",
+      "status": "PASS"
+    },
+    {
+      "id": "GROUND-03",
+      "name": "Cross Date Value Claimed as Today",
+      "detected": true,
+      "validator_action": "REJECT",
+      "status": "PASS"
+    },
+    {
+      "id": "GROUND-04",
+      "name": "Wrong/Nonexistent Evidence ID Binding",
+      "detected": true,
+      "validator_action": "REJECT",
+      "status": "PASS"
+    },
+    {
+      "id": "GROUND-05",
+      "name": "Nonexistent Metric Name",
+      "detected": true,
+      "validator_action": "REJECT",
+      "status": "PASS"
+    },
+    {
+      "id": "GROUND-06",
+      "name": "Valid FactRef Binding",
+      "detected": false,
+      "validator_action": "PASS",
+      "status": "PASS"
+    }
+  ]
+}

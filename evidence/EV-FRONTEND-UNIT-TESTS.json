@@ -1,0 +1,31 @@
+{
+  "evidence_id": "EV-FRONTEND-UNIT-TESTS",
+  "phase": "PHASE_3",
+  "category": "FRONTEND_UNIT_COMPONENT_TESTS",
+  "timestamp": "2026-09-01T06:13:20.227655",
+  "dataset_sha256": "c61235a0ca1f7e2b82cfd3555d376eb0f84e6680425b300fd1e1c9e2c958e715",
+  "test_runner": "Vitest 2.1.9 / jsdom",
+  "test_suite_count": 2,
+  "total_tests": 18,
+  "passed_tests": 18,
+  "failed_tests": 0,
+  "scenarios_covered": [
+    "UI-001: Normal day KPI values accurate rendering",
+    "UI-002: Labor HIGH alert warning badge",
+    "UI-003: DATA_INCOMPLETE Warning Banner",
+    "UI-004: Food Cost null -> '데이터 없음' (MISSING_INPUT)",
+    "UI-005: Contribution null -> '계산 불가' (BLOCKED_DEPENDENCY)",
+    "UI-006: Complaints 0 -> '0건'",
+    "UI-007: Complaints null -> '미입력' (NOT_PROVIDED)",
+    "UI-008: Evidence VALID badge",
+    "UI-009: Evidence INVALID state",
+    "UI-010: Alert severity sorting (CRITICAL > HIGH > MEDIUM)",
+    "UI-011: Synthetic badge permanent display",
+    "UI-012: Error state with retry",
+    "UI-013: Loading skeleton",
+    "UI-014: Empty alert state",
+    "UI-015: Summary coverage warning badge (<100%)"
+  ],
+  "status": "PASS",
+  "file_sha256": "d9a051d62d3ac392d3b7c2528eb145c96ab715ef1ba98c4abfde649bfecd31e2"
+}

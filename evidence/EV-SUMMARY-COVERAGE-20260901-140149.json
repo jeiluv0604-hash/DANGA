@@ -1,0 +1,30 @@
+{
+  "evidence_id": "EV-SUMMARY-COVERAGE-20260901-140149",
+  "timestamp": "2026-09-01T14:01:49.085185",
+  "type": "EV-SUMMARY-COVERAGE",
+  "period": "2026-06-01 ~ 2026-08-31",
+  "total_days": 92,
+  "golden_source_sales_sum": 1058152000.0,
+  "api_total_sales": 1058152000.0,
+  "match": true,
+  "average_daily_sales": 11501652.17,
+  "coverage": {
+    "sales": {
+      "available_days": 92,
+      "total_days": 92
+    },
+    "labor_ratio": {
+      "available_days": 92,
+      "total_days": 92
+    },
+    "food_cost_ratio": {
+      "available_days": 91,
+      "total_days": 92
+    },
+    "contribution_ratio": {
+      "available_days": 91,
+      "total_days": 92
+    }
+  },
+  "status": "PASS"
+}

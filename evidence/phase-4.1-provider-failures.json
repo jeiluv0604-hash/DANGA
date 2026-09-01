@@ -1,0 +1,61 @@
+{
+  "phase": "4.1",
+  "timestamp": "2026-09-01T06:40:34.770507+00:00",
+  "scenarios_tested": [
+    {
+      "id": "PROVIDER-01",
+      "name": "Missing API Key",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=MISSING_API_KEY)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-01b",
+      "name": "Explicit Fallback Configured",
+      "result": "FALLBACK_TO_MOCK (actual_provider=mock, fallback_used=True)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-02",
+      "name": "Timeout Error (30s)",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=TIMEOUT)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-03",
+      "name": "HTTP 429 Rate Limit",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=RATE_LIMIT_429)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-04",
+      "name": "HTTP 500 Internal Server Error",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=SERVER_ERROR_500)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-05",
+      "name": "Malformed JSON Response",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=MALFORMED_JSON)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-06",
+      "name": "Schema Invalid Response",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=SCHEMA_INVALID)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-07",
+      "name": "Empty Response",
+      "result": "PROVIDER_UNAVAILABLE (fallback_reason=EMPTY_RESPONSE)",
+      "status": "PASS"
+    },
+    {
+      "id": "PROVIDER-08",
+      "name": "Unexpected Exception",
+      "result": "ERROR (fallback_reason=UNEXPECTED_EXCEPTION)",
+      "status": "PASS"
+    }
+  ],
+  "silent_fallback_prevented": true
+}

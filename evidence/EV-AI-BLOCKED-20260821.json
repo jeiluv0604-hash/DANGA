@@ -1,0 +1,61 @@
+{
+  "evidence_id": "EV-AI-BLOCKED-20260821",
+  "business_date": "2026-08-21",
+  "data_status": "DATA_INCOMPLETE",
+  "ai_eligible": false,
+  "brief": {
+    "status": "BLOCKED",
+    "business_date": "2026-08-21",
+    "dataset_disclosure": "SYNTHETIC",
+    "executive_summary": "필수 입력 데이터(Food_Cost)가 누락되어 자동 경영 분석 및 원인 추정이 차단되었습니다.",
+    "findings": [
+      {
+        "finding": "필수 데이터 결측으로 인해 식재료 원가율 및 공헌이익이 계산 불가 상태입니다.",
+        "severity": "CRITICAL",
+        "rule_id": "R-DQ-01",
+        "evidence_ids": [
+          "EV-BLOCKED-2026-08-21"
+        ]
+      }
+    ],
+    "possible_causes": [
+      {
+        "hypothesis": "원천 데이터 집계 또는 입력 시스템 누락",
+        "confidence": "HIGH",
+        "basis": "Data Quality Gate 필수 필드 결측 탐지",
+        "evidence_ids": [
+          "EV-BLOCKED-2026-08-21"
+        ]
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "누락된 필수 항목(Food_Cost) 데이터를 재확인하고 수기 입력 또는 재수집을 수행하십시오.",
+        "owner_role": "GENERAL_MANAGER",
+        "priority": "CRITICAL",
+        "approval_required": true,
+        "evidence_ids": [
+          "EV-BLOCKED-2026-08-21"
+        ]
+      }
+    ],
+    "unknowns": [
+      "식재료비 누락으로 인한 당일 정확한 원가율 및 순이익"
+    ],
+    "missing_inputs": [
+      "Food_Cost"
+    ],
+    "available_facts": [
+      "sales"
+    ],
+    "prohibited_inference_detected": false,
+    "rejection_reasons": [],
+    "prompt_version": "v1.0",
+    "facts_version": "v1.0",
+    "rule_version": "v1.0",
+    "provider": "deterministic",
+    "model": "deterministic-dq-blocked-v1"
+  },
+  "blocking_rule": "AI-05 — DATA_INCOMPLETE BLOCK",
+  "evidence_sha256": "2c7bf8530f77d8db499fe153219f3d1031327b13c50f0677a91b4e51b1e1d864"
+}

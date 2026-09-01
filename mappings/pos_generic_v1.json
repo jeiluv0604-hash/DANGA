@@ -1,0 +1,20 @@
+{
+  "mapping_id": "MAP-POS-GENERIC-V1",
+  "source_type": "POS",
+  "mapping_version": "1.0.0",
+  "status": "CONFIRMED",
+  "column_mappings": {
+    "매출일자": "business_date",
+    "영수증번호": "receipt_id",
+    "거래시간": "transaction_time",
+    "테이블번호": "table_id",
+    "메뉴코드": "menu_id",
+    "메뉴명": "menu_name",
+    "수량": "quantity",
+    "총매출액": "gross_sales",
+    "할인금액": "discount",
+    "실매출액": "net_sales",
+    "객수": "guests",
+    "결제수단": "payment_type"
+  }
+}

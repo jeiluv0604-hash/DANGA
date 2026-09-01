@@ -1,0 +1,57 @@
+{
+  "evidence_id": "EV-PHASE6-MANAGEMENT-SYSTEM-PROTOTYPE",
+  "phase": "PHASE_6",
+  "timestamp": "2026-09-01T09:55:22.919864+00:00",
+  "brand_name": "담가화로구이",
+  "dataset_type": "SYNTHETIC",
+  "data_disclosure": "SYNTHETIC · 실제 담가화로구이 매장 데이터 아님",
+  "policy_status": {
+    "cost_allocation": "UNVERIFIED POLICY",
+    "menu_abcd": "UNVERIFIED POLICY",
+    "manager_scorecard": "UNVERIFIED POLICY"
+  },
+  "components_verified": [
+    "10 Daily Management KPIs",
+    "Monthly P&L",
+    "Budget vs Actual",
+    "Cash Flow",
+    "Recipe/BOM Cost Engine",
+    "Menu ABCD Engineering",
+    "Organization/RACI",
+    "Manager Scorecard",
+    "Approval Policies",
+    "SOP/Checklist",
+    "Action Closure and Audit Chain",
+    "Monthly Management Review",
+    "Deterministic AI Management Brief",
+    "CEO Cockpit Integration"
+  ],
+  "test_results": {
+    "pytest": 202,
+    "vitest": 24,
+    "playwright": 18,
+    "production_build": "PASS",
+    "total_automated_tests": 244,
+    "failures": 0
+  },
+  "safety": {
+    "automatic_price_change": false,
+    "automatic_ordering": false,
+    "automatic_payment": false,
+    "automatic_employment_action": false,
+    "human_approval_required": true,
+    "ai_calculated_numbers": false
+  },
+  "prototype_content_sha256": "07e58481960828d2c0f2db7d35909554a5a657cef0cc4fcacbf66d2df6a87341",
+  "source_sha256": {
+    "domains\\management\\prototype.py": "4252dd3f6b5412c72989c2a5a3910c6649c261a0b46387d831bdbffe9eb4ba8b",
+    "apps\\api\\routes\\management.py": "bfc26bba44e8ddd2f55f3452400495342080f429bfc423e736ea0f47efc9d29e",
+    "apps\\frontend\\src\\components\\management\\ManagementSystemSection.tsx": "593c07465cfeb7359dc3326fbafc94cf40c4f934aea892740cdda2943c597d3a",
+    "tests\\management\\test_management_prototype.py": "b3f6f3043c1836094639c40cb7b4ade19f51acc4bbdf30554369bc238dc32693"
+  },
+  "screenshot": {
+    "path": "evidence\\EV-UI-MANAGEMENT-PROTOTYPE.png",
+    "sha256": "214797e9402de0c32ff149109d4979f98b0a853e98155b66f4a566685639f738"
+  },
+  "overall_status": "PASS"
+}

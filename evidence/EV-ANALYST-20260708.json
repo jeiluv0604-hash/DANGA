@@ -1,0 +1,59 @@
+{
+  "evidence_id": "EV-ANALYST-20260708",
+  "business_date": "2026-07-08",
+  "rule_evaluated": "R-INV-01",
+  "brief": {
+    "status": "READY",
+    "business_date": "2026-07-08",
+    "dataset_disclosure": "SYNTHETIC",
+    "executive_summary": "2026-07-08 영업 분석: 식재료 실사 재고 차이 확인 필요 등의 경영 이상이 감지되어 현장 확인 및 조치가 권고됩니다.",
+    "findings": [
+      {
+        "finding": "이론 재고 대비 실사 재고 차이(-8.5kgkg)가 관리 기준(-5.0kgkg) 이하로 발생했습니다.",
+        "severity": "CRITICAL",
+        "rule_id": "R-INV-01",
+        "evidence_ids": [
+          "EV-ALT-2026-07-08-R-INV-01"
+        ]
+      }
+    ],
+    "possible_causes": [
+      {
+        "hypothesis": "실사 계량 오차, 미기록 서비스 제공, 폐기 누락 또는 입출고 전산 오입력 가능성",
+        "confidence": "MEDIUM",
+        "basis": "재고 차이 -8.5kgkg 관측",
+        "evidence_ids": [
+          "EV-ALT-2026-07-08-R-INV-01"
+        ]
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "육류 실사 재고를 재측정하고 당일 서비스·폐기·반품 전산 기록을 대조 확인하십시오.",
+        "owner_role": "KITCHEN_LEAD",
+        "priority": "CRITICAL",
+        "approval_required": true,
+        "evidence_ids": [
+          "EV-ALT-2026-07-08-R-INV-01"
+        ]
+      }
+    ],
+    "unknowns": [
+      "현장 상세 정성적 원인(CCTV/직접확인 필요)"
+    ],
+    "missing_inputs": [],
+    "available_facts": [
+      "sales",
+      "inventory_variance_kg"
+    ],
+    "prohibited_inference_detected": false,
+    "rejection_reasons": [],
+    "prompt_version": "v1.0",
+    "facts_version": "v1.0",
+    "rule_version": "v1.0",
+    "provider": "deterministic",
+    "model": "deterministic-rule-brief-v1"
+  },
+  "zero_accusation_verified": true,
+  "evidence_sha256": "88064c4acaaf58b50f7e5054b681b7f1e5771f4f6daefdc4efdb399a24a89a2d"
+}

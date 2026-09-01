@@ -1,0 +1,23 @@
+{
+  "audit_id": "EV-HUMAN-REVIEW-AUDIT",
+  "governance_model": "L1 Human-in-the-Loop Decision Support",
+  "audit_trail_verified": true,
+  "actions": [
+    {
+      "brief_id": "BRF-2026-06-12",
+      "actor_role": "CEO",
+      "previous_status": "REVIEW_REQUIRED",
+      "new_status": "APPROVED",
+      "comment": "승인 완료: 피크타임 홀 파트타임 재배치 지시"
+    },
+    {
+      "brief_id": "BRF-2026-07-08",
+      "actor_role": "GENERAL_MANAGER",
+      "previous_status": "REVIEW_REQUIRED",
+      "new_status": "REJECTED",
+      "comment": "반려: 육류 재계량 결과 이상 없음 확인"
+    }
+  ],
+  "status": "PASS",
+  "evidence_sha256": "4e9c64dd12455ac091e7ab27cecd252cf70bbbcfd83d8f372db1e1a3ebb24288"
+}
