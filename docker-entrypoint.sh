@@ -1,9 +1,8 @@
 #!/bin/sh
-# Best-effort schema migration + synthetic seed. If either step fails (or this
-# entrypoint is bypassed by a platform that auto-detects a plain Python service),
-# the FastAPI lifespan hook in apps/api/main.py performs the same bootstrap on
-# startup, so the API still comes up with data.
-python -m alembic upgrade head || echo "entrypoint: alembic upgrade failed; app will self-bootstrap"
-python scripts/seed.py || echo "entrypoint: seed failed; app will self-bootstrap"
-
+# Schema + synthetic seed happen in the FastAPI lifespan hook (apps/api/main.py):
+# it runs create_all (full current schema straight from the ORM models) and
+# seeds the Golden Dataset when daily_facts is empty. We deliberately do NOT run
+# `alembic upgrade` here — the migration chain only evolves an existing database
+# and cannot build one from scratch. Operators of a persistent DB run alembic
+# themselves.
 exec python -m uvicorn apps.api.main:app --host 0.0.0.0 --port "${PORT:-8000}"

@@ -10,11 +10,11 @@ Browser ──▶ Vercel (apps/frontend, static)
             Render (Dockerfile, FastAPI + SQLite)
 ```
 
-> Data note: the backend runs on synthetic data only. On boot it applies Alembic
-> migrations and re-seeds the Golden Dataset (`scripts/seed.py`, idempotent by
-> file SHA-256). On Render's free tier the disk is ephemeral, so operator-entered
-> data (shadow imports, decision actions) resets on each redeploy. That is
-> acceptable for this prototype; see "Persisting data" below to change it.
+> Data note: the backend runs on synthetic data only. On startup it builds the
+> schema (`create_all`) and seeds the Golden Dataset. `DATABASE_URL` points at
+> `/tmp`, so each instance starts clean and operator-entered data (shadow
+> imports, decision actions) resets on restart. That is acceptable for this
+> prototype; see "Persisting data" below to change it.
 
 ---
 
@@ -24,9 +24,18 @@ Browser ──▶ Vercel (apps/frontend, static)
 | File | Purpose |
 |---|---|
 | `Dockerfile` | `python:3.14-slim`, installs `requirements.txt`, runs `docker-entrypoint.sh` |
-| `docker-entrypoint.sh` | `alembic upgrade head` → `python scripts/seed.py` → `uvicorn ... --port $PORT` |
-| `render.yaml` | Render Blueprint (web service, Docker runtime, `/health` check) |
+| `docker-entrypoint.sh` | just `uvicorn ... --port $PORT` |
+| `Procfile` | same start command for a native Python service (non-Docker) |
+| `render.yaml` | Render Blueprint; sets `DATABASE_URL=sqlite:////tmp/damga_ops.db` |
 | `.dockerignore` | keeps the frontend and local DB out of the image |
+
+Schema + data are handled by the FastAPI **lifespan hook** in `apps/api/main.py`:
+on startup it runs `Base.metadata.create_all` (full current schema from the ORM
+models) and seeds the synthetic Golden Dataset when `daily_facts` is empty.
+`alembic upgrade` is **not** run at boot — the migration chain only evolves an
+existing database, it cannot build one from scratch. `DATABASE_URL` points at
+`/tmp` so every instance starts from a clean schema; data resets on restart
+(synthetic prototype — see "Persisting data").
 
 ### Steps
 1. Push this repo to GitHub (done).

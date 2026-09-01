@@ -22,6 +22,11 @@ from apps.api.database import Base
 import apps.api.models  # load all models
 target_metadata = Base.metadata
 
+# Honor DATABASE_URL so migrations hit the same database the app uses
+# (the hardcoded alembic.ini value is only the local-dev default).
+from apps.api.config import settings as _app_settings
+config.set_main_option("sqlalchemy.url", _app_settings.DATABASE_URL)
+
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
